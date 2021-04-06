@@ -1,11 +1,15 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, url_for
 import os
-from deployment import predict
+from deployment import predict, model ,saver
+import tensorflow as tf
 
-app = Flask(__name__)
+
+tf.keras.backend.clear_session()
+app = Flask(__name__, static_folder='colorgan/static')
 
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 
 
 @app.route('/')
@@ -23,7 +27,9 @@ def upload():
     filename = file.filename
     destination = "/".join([target, filename])
     file.save(destination)
-    outname = predict(filename)
+    # outname = predict(filename)
+    out_name, out_dir, im = predict(filename)
+    outname = saver(out_name, out_dir, im)
     return render_template('colorize.html', og=filename, res_name=outname)
 
 
@@ -38,4 +44,4 @@ def colorize(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

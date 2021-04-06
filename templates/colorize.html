@@ -1,16 +1,12 @@
 {% extends "layout.html" %}
     {% block content %}
-        <div class=container style="width: 100%; display: inline-block;">
-            <div class=" col-md-6">
+        <div class="container col-lg-12" style="width: 100%; display: inline-block !important;">
+            <div class=" col-lg-6" style=" display: inline-block !important;">
                 <img src="{{ url_for('og_img', filename = og)}}" class="rounded float-left" alt="...">
             </div>
-            
-        </div>
-        <div class=container style="width: 100%; display: inline-block;">
-            <div>
+            <div class="col-lg-6" style=" display: inline-block !important;">
                 <img src="{{ url_for('colorize', filename = res_name)}}" class="rounded float-right">
             </div>
             
-        </div>
     {% endblock content %}
    

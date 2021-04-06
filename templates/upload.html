@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
     {% block content %}
+        <!-- <div class="card" style="width: 18rem;">
+            <form method=post action="{{ url_for('upload')}}" enctype=multipart/form-data>
+                <div id="inp">
+                    <input type="file" accept="image" class="btn" name=file value="Upload">
+                </div>
+                <div id="button">
+                    <button type="submit" class="btn btn-primary"> Predict!</button>
+                </div>
+                
+            </form>
+        </div> -->
         <form method=post action="{{ url_for('upload')}}" enctype=multipart/form-data>
-            <input type=file name=file>
-            <input type=submit value="Predict">
+            <input type="file" accept="image" class="btn" name=file value="Upload" style = "border: 2px solid #548B87; color: white;">
+            <!-- <a class="btn btn-primary js-scroll-trigger" href="{{ url_for('home') }}">Color Now</a> -->
+            <button type="submit" class="btn btn-primary js-scroll-trigger"> Color Now</button>
         </form>
     {% endblock content %}
    

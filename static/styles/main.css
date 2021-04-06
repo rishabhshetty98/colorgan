@@ -1,0 +1,20 @@
+#inp{
+    padding: 10%;
+}
+#button{
+    padding: 10%;
+}
+.mainpageCard{
+    
+    background-color: aqua;
+    align: center; 
+    width: 18rem;
+
+}
+
+.navbar{
+
+    background-color: black !important;
+
+
+}
